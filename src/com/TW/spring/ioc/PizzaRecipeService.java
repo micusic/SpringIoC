@@ -1,9 +1,9 @@
 package com.TW.spring.ioc;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
 
 public class PizzaRecipeService {
-    @Autowired
+    @Resource
     private PizzaRecipe pizzaRecipe;
 
     public void printPizzaRecipe(){
