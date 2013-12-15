@@ -3,11 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="chickenPizzaRecipe" class="com.TW.spring.ioc.ChickenPizzaRecipe"/>
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
     <bean id="baconPizzaRecipe" class="com.TW.spring.ioc.BaconPizzaRecipe"/>
-    <bean id="pizzaRecipeService" class="com.TW.spring.ioc.PizzaRecipeService">
-        <property name="pizzaRecipe">
-            <ref local="baconPizzaRecipe" />
-        </property>
-    </bean>
+    <bean id="pizzaRecipeService" class="com.TW.spring.ioc.PizzaRecipeService"/>
 </beans>

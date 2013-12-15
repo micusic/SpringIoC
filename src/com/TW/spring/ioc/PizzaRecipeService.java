@@ -1,11 +1,10 @@
 package com.TW.spring.ioc;
 
-public class PizzaRecipeService {
-    private PizzaRecipe pizzaRecipe;
+import org.springframework.beans.factory.annotation.Autowired;
 
-    public void setPizzaRecipe(PizzaRecipe pizzaRecipe) {
-        this.pizzaRecipe = pizzaRecipe;
-    }
+public class PizzaRecipeService {
+    @Autowired
+    private PizzaRecipe pizzaRecipe;
 
     public void printPizzaRecipe(){
         System.out.println(pizzaRecipe.popRecipe());
