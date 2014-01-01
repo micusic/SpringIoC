@@ -8,7 +8,7 @@ repositories{
 }
 
 dependencies {
-    providedCompile 'javax.servlet:servlet-api:2.5'
+    providedCompile 'javax.servlet:javax.servlet-api:3.0.+'
 
     def springFrameworkVersion = '3.1.1.RELEASE'
 
@@ -16,7 +16,4 @@ dependencies {
             "org.springframework:spring-webmvc:${springFrameworkVersion}",
             "org.springframework:spring-beans:${springFrameworkVersion}",
             "org.springframework:spring-context:${springFrameworkVersion}"
-
-
-    runtime 'javax.servlet:jstl:1.1.2'
 }
