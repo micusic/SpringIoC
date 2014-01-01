@@ -1,4 +1,4 @@
-package com.TW.spring.ioc;
+package com.TW.spring.ioc.Recipes;
 
 public class ChickenPizzaRecipe implements PizzaRecipe{
     @Override

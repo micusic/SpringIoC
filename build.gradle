@@ -1,1 +1,22 @@
 apply plugin: 'idea'
+
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+repositories{
+    mavenCentral()
+}
+
+dependencies {
+    providedCompile 'javax.servlet:servlet-api:2.5'
+
+    def springFrameworkVersion = '3.1.1.RELEASE'
+
+    compile "org.springframework:spring-web:${springFrameworkVersion}",
+            "org.springframework:spring-webmvc:${springFrameworkVersion}",
+            "org.springframework:spring-beans:${springFrameworkVersion}",
+            "org.springframework:spring-context:${springFrameworkVersion}"
+
+
+    runtime 'javax.servlet:jstl:1.1.2'
+}
