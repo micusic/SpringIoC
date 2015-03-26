@@ -1,4 +1,0 @@
-SpringIoc
-=========
-
-Spring IoC Sample

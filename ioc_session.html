@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>IoC - Inversion of Control</title>
+    
+    <link href="impress.js/css/impress-demo.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body class="impress-not-supported">
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+<div id="impress">
+    <div id="ioc" class="step" data-x="0" data-y="0" data-z="0" data-scale="200">
+        <h1 >&nbsp;I o C</h1>
+    </div>
+    <div id="ioc2" class="step" data-x="0" data-y="0" data-z="-3000" data-y="0">
+        <h1>Inversion of Control</h1>
+    </div>
+    <div id="console" class="step slide" data-x="850" data-y="3000" data-rotate="90" data-scale="2">
+        <p>puts 'What is your name?'<p/>
+        <p>name = console.gets<p/>
+        <p>process_name(name)<p/>
+        <p>&nbsp;<p/>
+        <p>puts 'What is your question?'<p/>
+        <p>question = console.gets<p/>
+        <p>process_question(quest)<p/>
+    </div>
+    <div id="gui" class="step slide" data-x="850" data-y="3000" data-z="3000" data-rotate="90" data-scale="2" style="font-size: 27px;">
+        <p>window = Window.new()<p/>
+        <p>&nbsp;<p/>
+        <p>name_label = Label.new().setText("What is Your Name?")<p/>
+        <p>name_label.bind("FocusOut", process_name(name_label.Text))<p/>
+        <p>window.add(name_label)<p/>
+        <p>&nbsp;<p/>
+        <p>question_label = Label.new().setText("What is Your Question?")<p/>
+        <p>question_label.bind("FocusOut", process_quest(name_qustion.Text))<p/>
+        <p>window.add(question_label)<p/>
+        <p>&nbsp;<p/>
+        <p>window.show<p/>
+    </div>
+
+    <div id="diff" class="step sum" data-x="7700" data-y="-5300" data-scale="6">
+        <p>-代码不能决定 process_name 和 process_quest 的调用顺序</p>
+        <p>-window 管理各种事件及其响应函数, 并决定函数的调用时间</p>
+        <p>-通过绑定这个动作, 我们将控制权有代码交给了 window</p>
+    </div>
+
+    <div id="ccc1" class="step" data-x="10000" data-y="0" data-z="-30000" data-rotate="0" data-scale="5">
+        <p style="text-align:center;">控制</p>
+    </div>
+
+    <div id="ccc2" class="step" data-x="10000" data-y="200" data-z="-30000" data-rotate="180" data-scale="5">
+        <p style="text-align:center;">控制</p>
+    </div>
+
+    <div id="png1" class="step" data-x="14000" data-y="200" data-z="-35000" data-rotate="180" data-scale="5">
+        <img src="./1.png" />
+    </div>
+    <div id="png2" class="step" data-x="18000" data-y="200" data-z="-40000" data-rotate="180" data-scale="5">
+        <img src="./2.png" />
+    </div>
+
+    <div id="DI" class="step" data-x="8000" data-y="2000" data-z="-30000" data-rotate="180" data-scale="9">
+        <p>DI - Dependcy injection</p>
+    </div>
+    <div id="mf" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
+        <p>"As a result I think we need a more specific name for this pattern. Inversion of Control is too generic a term, and thus people find it confusing. As a result with a lot of discussion with various IoC advocates we settled on the name Dependency Injection."</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -- Martin Fowler,《Inversion of Control Containers and the Dependency Injection pattern》</p>
+    </div>
+    <div id="pizza" class="step" data-x="4500" data-y="-850" data-z="-30000" data-rotate="270" data-scale="6">
+        <p style="text-align:center;font-size:100px;">Sample</p>
+    </div>
+
+    <div id="compare" class="step sum" data-x="11700" data-y="-300" data-scale="6">
+        <p>使用IoC之前, pizzaRecipeService 依赖于接口 PizzaRecipe, 以及它的某一种具体实现.</p>
+        <p>&nbsp;<p/>
+        <p>使用IoC之后, pizzaRecipeService 只依赖于接口 PizzaRecipe.</p>
+        <p>&nbsp;<p/>
+        <p>使用IoC之后, pizzaRecipeService 使用哪种 PizzaRecipe, 通过读取配置文件 bean.xml 进行动态设置.</p>
+    </div>
+
+    <div id="good" class="step sum" data-x="15000" data-y="-300" data-scale="1">
+        <p>- 消除依赖, 改善代码的可重用性</p>
+        <p>- 客户代码面向接口, 无需知道实现类</p>
+        <p>- 简单地修改配置,来切换具体的实现类.</p>
+        <p>- 代码中并没有Spring, 新代码可以从Spring中脱离，旧有代码不需要修改</p>
+    </div>
+
+    <div id="setter" class="step ways" data-x="12000" data-y="14000" data-scale="2">
+        <h1>1. Setter Injection</h1>
+        <p>&lt;bean id="pizzaRecipeService" class="com.TW.spring.ioc.PizzaRecipeService"&gt;</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&lt;property name="pizzaRecipe" ref ="baconPizzaRecipe" /&gt;</p>
+        <p>&lt;bean/&gt;</p>
+    </div>
+
+    <div id="constructor" class="step ways" data-x="14000" data-y="15000" data-rotate="45" data-scale="2">
+        <h1>2. Constructor Injection</h1>
+        <p>&lt;bean id="pizzaRecipeService" class="com.TW.spring.ioc.PizzaRecipeService"&gt;</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&lt;constructor-arg ref="baconPizzaRecipe" /&gt;</p>
+        <p>&lt;bean/&gt;</p>
+    </div>
+
+    <div id="interface" class="step ways" data-x="16000" data-y="16000" data-scale="2">
+        <h1>3. Interface Injection</h1>
+        <p>It's</p>
+        <p>too</p>
+        <p>complex.</p>
+    </div>
+    <div id="autowire" class="step" data-x="3500" data-y="3850" data-z="-30000" data-rotate="270" data-scale="6">
+        <p style="text-align:center;font-size:100px;">@autowired</p>
+    </div>
+    <div id="resource" class="step" data-x="5500" data-y="3850" data-z="-30000" data-rotate="0" data-scale="6">
+        <p style="text-align:center;font-size:100px;">@Resource</p>
+    </div>
+</div>
+<script src="impress.js/js/impress.js"></script>
+<script>impress().init();</script>
+</body>
+</html>
